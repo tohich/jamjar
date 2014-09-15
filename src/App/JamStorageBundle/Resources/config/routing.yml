@@ -1,0 +1,3 @@
+app_jam_storage_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AppJamStorageBundle:Default:index }

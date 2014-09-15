@@ -1,0 +1,156 @@
+<?php
+
+namespace App\JamStorageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * JamJar
+ */
+class JamJar
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $year;
+
+    /**
+     * @var string
+     */
+    private $comment;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $jobs;
+
+    /**
+     * @var \App\JamStorageBundle\Entity\JamType
+     */
+    private $type;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->jobs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     * @return JamJar
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer 
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     * @return JamJar
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string 
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Add jobs
+     *
+     * @param \App\JamStorageBundle\Entity\Job $jobs
+     * @return JamJar
+     */
+    public function addJob(\App\JamStorageBundle\Entity\Job $jobs)
+    {
+        $this->jobs[] = $jobs;
+
+        return $this;
+    }
+
+    /**
+     * Remove jobs
+     *
+     * @param \App\JamStorageBundle\Entity\Job $jobs
+     */
+    public function removeJob(\App\JamStorageBundle\Entity\Job $jobs)
+    {
+        $this->jobs->removeElement($jobs);
+    }
+
+    /**
+     * Get jobs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getJobs()
+    {
+        return $this->jobs;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \App\JamStorageBundle\Entity\JamType $type
+     * @return JamJar
+     */
+    public function setType(\App\JamStorageBundle\Entity\JamType $type = null)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \App\JamStorageBundle\Entity\JamType 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+}

@@ -1,0 +1,6 @@
+app_jam_storage:
+    resource: "@AppJamStorageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+

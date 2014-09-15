@@ -1,0 +1,21 @@
+App\JamStorageBundle\Entity\JamJar:
+    type: entity
+    repositoryClass: App\JamStorageBundle\Repository\JamJarRepository
+    table: jam_jar
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        year:
+            type: integer
+        comment:
+            type: string
+            length: 255
+    manyToOne:
+         type:
+            targetEntity: JamType
+            inversedBy: jamJars
+            joinColumn:
+              name: jam_type_id
+              referencedColumnName: id

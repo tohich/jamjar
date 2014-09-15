@@ -1,0 +1,100 @@
+<?php
+
+namespace App\JamStorageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * JamType
+ */
+class JamType
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $jamjars;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->jamjars = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return JamType
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add jamjars
+     *
+     * @param \App\JamStorageBundle\Entity\JamJar $jamjars
+     * @return JamType
+     */
+    public function addJamjar(\App\JamStorageBundle\Entity\JamJar $jamjars)
+    {
+        $this->jamjars[] = $jamjars;
+
+        return $this;
+    }
+
+    /**
+     * Remove jamjars
+     *
+     * @param \App\JamStorageBundle\Entity\JamJar $jamjars
+     */
+    public function removeJamjar(\App\JamStorageBundle\Entity\JamJar $jamjars)
+    {
+        $this->jamjars->removeElement($jamjars);
+    }
+
+    /**
+     * Get jamjars
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getJamjars()
+    {
+        return $this->jamjars;
+    }
+}

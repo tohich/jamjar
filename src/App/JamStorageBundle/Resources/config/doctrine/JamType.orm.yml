@@ -1,0 +1,13 @@
+App\JamStorageBundle\Entity\JamType:
+    type: entity
+    repositoryClass: App\JamStorageBundle\Repository\JamTypeRepository
+    table: jam_type
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
