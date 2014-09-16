@@ -6,18 +6,28 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * JamType
+ *
+ * @ORM\Table(name="jam_type", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_AA7BE8E05E237E06", columns={"name"})})
+ * @ORM\Entity
  */
 class JamType
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
+
 
 
     /**

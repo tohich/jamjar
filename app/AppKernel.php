@@ -17,6 +17,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            new App\JamStorageBundle\AppJamStorageBundle(),
+
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
@@ -25,8 +27,6 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
             new Sonata\AdminBundle\SonataAdminBundle(),
-
-            new App\JamStorageBundle\AppJamStorageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

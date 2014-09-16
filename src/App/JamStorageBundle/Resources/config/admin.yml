@@ -1,0 +1,11 @@
+services:
+    sonata.admin.jamtype:
+        class: App\JamStorageBundle\Admin\JamTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "JamType" }
+        arguments:
+            - ~
+            - App\JamStorageBundle\Entity\JamType.php
+            - ~
+        calls:
+            - [AppJamStorageBundle]

@@ -6,23 +6,45 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * JamJar
+ *
+ * @ORM\Table(name="jam_jar", indexes={@ORM\Index(name="IDX_463B8229ED3C46A", columns={"jam_type_id"})})
+ * @ORM\Entity
  */
 class JamJar
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="year", type="integer", nullable=false)
      */
     private $year;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length=255, nullable=false)
      */
     private $comment;
+
+    /**
+     * @var \JamType
+     *
+     * @ORM\ManyToOne(targetEntity="JamType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="jam_type_id", referencedColumnName="id")
+     * })
+     */
+    private $jamType;
+
 
     /**
      * @var \App\JamStorageBundle\Entity\JamType
